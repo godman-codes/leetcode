@@ -63,7 +63,7 @@ class Solution:
         tens = (((num%1000)%100)//10)
         units = ((num%1000)%100)%10
         if thousands:
-            answer =+ thousands * 'M'
+            answer += thousands * 'M'
         if hundreds:
             answer += self.check_hundred(hundreds)
         if tens:
