@@ -10,6 +10,7 @@ class Solution:
                 if i == new_list[-1]:
                     new_list = []
                 elif i != new_list[-1]:
+                    #if the character is not the last character in the new list assign the new_list slice from when the character that is repeated appears to the end and continue 
                     new_list = new_list[new_list.index(i)+1:]
                 new_list.append(i)
             else:
