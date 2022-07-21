@@ -2,7 +2,7 @@ class Solution:
     def threeSum(self, nums:int):
         res = []
         nums.sort()
-        # loop through a counter and its correponding values
+        # loop through a counter and its corresponding values
         for i,a in enumerate(nums):
             if i > 0 and a == nums[i-1]:
                 #if the next value is the same as the previous one continue to the next loop
@@ -11,10 +11,10 @@ class Solution:
                 #else do the two sum ii algo
                 l,r = i+1,len(nums)-1
                 while l < r:
-                    cummulative = a + nums[l]+ nums[r]
-                    if cummulative > 0:
+                    cumulative = a + nums[l]+ nums[r]
+                    if cumulative > 0:
                         r -= 1
-                    elif cummulative < 0:
+                    elif cumulative < 0:
                         l+=1
                     else:
                         res.append([a, nums[l], nums[r]])
