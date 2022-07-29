@@ -1,19 +1,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         myStack = []
-        parenthesis = ['{}', '[]', '()']
+        symbols = {
+            '(': ')',
+            '[': ']',
+            '{': '}'
+        }
         def stack_handler():
             if len(myStack) > 1:
-                temp = myStack[-2] + myStack[-1]
-                print(temp)
-                while temp in parenthesis:
+                if symbols[myStack[-2]] == myStack[-1]:
                     myStack.pop()
                     myStack.pop()
-                    if len(myStack) > 1:
-                        temp = myStack[-2] + myStack[-1]
-                    else:
-                        temp = 1
-            return
+                elif myStack[-1] in symbols.values() and symbols[myStack[-2]] != myStack[-1]:
+                    return False
         for i in s:
             myStack.append(i)
             stack_handler()
@@ -22,4 +21,4 @@ class Solution:
         return True
                 
                 
-print(Solution().isValid("(]"))
+print(Solution().isValid("(((((())))))"))
