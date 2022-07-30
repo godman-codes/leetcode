@@ -1,0 +1,21 @@
+class Solution:
+    def generateParenthesis(self, n: int):
+        stack = []
+        res = []
+        
+        def backTrack(openN, closedN):
+            if closedN == openN == n:
+                res.append(''.join(stack))
+                return
+
+            if openN < n:
+                stack.append('(')
+                backTrack(openN+1, closedN)
+                stack.pop()
+
+            if closedN < openN:
+                stack.append(')')
+                backTrack(openN, closedN+1)
+                stack.pop()
+        backTrack(0,0)
+        return res
